@@ -35,6 +35,8 @@ def index():
 ############################################################
 # List counters
 ############################################################
+
+
 @app.route("/counters", methods=["GET"])
 def list_counters():
     """Lists all counters"""
@@ -69,6 +71,8 @@ def create_counters(name):
 ############################################################
 # Read counters
 ############################################################
+
+
 @app.route("/counters/<name>", methods=["GET"])
 def read_counters(name):
     """Reads a single counter"""
@@ -84,11 +88,12 @@ def read_counters(name):
 ############################################################
 # Update counters
 ############################################################
+
+
 @app.route("/counters/<name>", methods=["PUT"])
 def update_counters(name):
     """Updates a counter"""
     app.logger.info("Request to Update counter: %s...", name)
-
     if name not in COUNTER:
         return abort(status.HTTP_404_NOT_FOUND, f"Counter {name} does not exist")
 
@@ -101,6 +106,8 @@ def update_counters(name):
 ############################################################
 # Delete counters
 ############################################################
+
+
 @app.route("/counters/<name>", methods=["DELETE"])
 def delete_counters(name):
     """Deletes a counter"""
